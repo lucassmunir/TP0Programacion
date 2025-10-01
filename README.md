@@ -1,18 +1,54 @@
-## Getting Started
+# Trabajo Práctico – Programación Orientada a Objetos (Java)
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+## Clases implementadas
+- `Estudiante`
+- `Materia`
+- `Carrera`
+- `App` (con el método `main` que demuestra las relaciones)
 
-## Folder Structure
+---
 
-The workspace contains two folders by default, where:
+## Encapsulamiento
+Los atributos de cada clase se declararon como **privados**.  
+El acceso y modificación se hace mediante **getters y setters**, lo que permite controlar y validar los valores antes de asignarlos.
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+---
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+## Relaciones entre clases
+- **Estudiante – Materia**:  
+  Cada estudiante tiene un arreglo de materias.  
+  - `agregarMateria(Materia m)` agrega una nueva materia.  
+  - `calcularPromedio()` calcula el promedio de calificaciones de todas sus materias.  
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+- **Carrera – Estudiante**:  
+  Cada carrera tiene un arreglo de estudiantes.  
+  - `agregarEstudiante(Estudiante e)` agrega un estudiante a la carrera.  
+  - `listarEstudiantes()` muestra todos los estudiantes.  
+  - `buscarEstudiante(String nombre)` busca un estudiante por su nombre.  
 
-## Dependency Management
+- En `App.main`:  
+  Se crean seis estudiantes, se les asignan materias, se calculan promedios y se agregan a una carrera para listarlos y buscar uno por nombre.
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+---
+
+## Validaciones en setters
+- **Estudiante**  
+  - `setNombre` y `setApellido`: no permiten valores vacíos.  
+  - `setEdad`: debe ser mayor a 16.  
+  - `setPromedio`: debe estar entre 0 y 10.  
+
+- **Materia**  
+  - `setCreditos`: mayor a 0.  
+  - `setCalificacion`: entre 0 y 10.  
+
+---
+
+## Ejecución
+
+    El proyecto se desarrolló y probó en Visual Studio Code, usando la extensión de Java que permite compilar y ejecutar directamente con el botón ▶️ Run.
+    Por eso, no fue necesario compilar manualmente con javac, ya que la extensión gestiona los archivos .class en segundo plano.
+
+    Si se desea compilar desde consola, estando en la carpeta de los .java se puede hacer:
+
+    javac App.java Estudiante.java Materia.java Carrera.java
+    java App
